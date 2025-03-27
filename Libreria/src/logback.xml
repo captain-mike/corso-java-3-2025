@@ -1,0 +1,43 @@
+<configuration>
+
+    <!--
+        Definisce un pattern condiviso per il formato dei log.
+        - %d: Data e ora.
+        - [%thread]: Nome del thread.
+        - %-5level: Livello del log (TRACE, DEBUG, INFO, ecc.).
+        - %logger{36}: Nome del logger (limite a 36 caratteri).
+        - %msg%n: Messaggio del log con interruzione di linea.
+    -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n" />
+
+    <!-- Appender per la console: Invio dei log alla console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per il file: Salva i log in un file persistente -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Percorso del file di log -->
+        <file>logs/application.log</file>
+        <!-- Aggiunge i log al file esistente -->
+        <append>true</append>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--
+        Root Logger
+        Configura il livello minimo di log per il resto del sistema.
+        - level="INFO": Registra solo INFO, WARN e ERROR (DEBUG e TRACE verranno ignorati).
+    -->
+    <root level="DEBUG">
+        <!-- Collega gli appender definiti sopra -->
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
