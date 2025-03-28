@@ -3,3 +3,18 @@
 2025-03-27 12:18:01 [main] ERROR TestLog.Main - Error
 2025-03-27 12:20:14 [main] INFO  TestLog.Main - Programma iniziato
 2025-03-27 12:20:14 [main] ERROR TestLog.Main - Error
+2025-03-27 14:20:19 [main] INFO  TestLog.Main - Programma iniziato
+2025-03-27 14:20:19 [main] DEBUG TestLog.Main - Debug del programma
+2025-03-27 14:20:19 [main] ERROR TestLog.Main - Error
+2025-03-27 14:21:28 [main] INFO  TestLog.Main - Programma iniziato
+2025-03-27 14:21:28 [main] DEBUG TestLog.Main - Debug del programma
+2025-03-27 14:21:28 [main] ERROR TestLog.Main - Error
+2025-03-27 14:22:58 [main] INFO  TestLog.Main - Programma iniziato
+2025-03-27 14:22:58 [main] DEBUG TestLog.Main - Debug del programma
+2025-03-27 14:22:58 [main] ERROR TestLog.Main - Error
+2025-03-27 14:23:58 [main] INFO  TestLog.Main - Programma iniziato
+2025-03-27 14:23:58 [main] DEBUG TestLog.Main - Debug del programma
+2025-03-27 14:23:58 [main] ERROR TestLog.Main - Error
+2025-03-27 14:24:27 [main] INFO  TestLog.Main - Programma iniziato
+2025-03-27 14:24:27 [main] DEBUG TestLog.Main - Debug del programma
+2025-03-27 14:24:27 [main] ERROR TestLog.Main - Error
