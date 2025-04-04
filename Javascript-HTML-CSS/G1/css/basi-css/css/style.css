@@ -1,0 +1,43 @@
+/*
+
+selettore{
+    regole/proprietà : valore;
+}
+
+*/
+
+.sottolineato{
+    text-decoration: underline;
+}
+.grassetto{
+    font-weight: bold;
+}
+
+/*
+Specificità
+
+tag : 1
+classe : 10
+id : 100
+inline style = 1000
+
+*/
+
+#colore-verde{/*100*/
+    color: green;
+}
+.colore-rosso{/*10*/
+    color: red;
+}
+.colore-viola{/*10*/
+    color: purple;
+}
+
+/* 
+È possibile aggiungere maggiore specificità selezionando più dettagli di un elemento
+Nell'esempio sottostante, specifico che solo gli span con la classe colore viola dovranno avere un colore differente
+*/
+span.colore-viola{/* 1 + 10*/
+    color: rgb(63, 0, 63);
+}
+
