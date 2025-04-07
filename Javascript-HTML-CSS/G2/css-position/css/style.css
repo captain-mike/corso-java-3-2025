@@ -1,0 +1,139 @@
+/* esempio per relative */
+#box{
+    background-color: aquamarine;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.riga{
+    height: 50px;
+    border: 1px solid #777;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 40px;
+    color: red;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.riga:hover{
+    background-color: #000;
+}
+
+.riga:nth-of-type(3){
+    position: relative;
+    top: 50px;
+    left: 30px;
+}
+
+/* Esempio per Absolute  */
+
+.padding{
+    padding: 15px;
+}
+
+#relative-area{
+    background-color: aquamarine;
+    height: 50vh;
+    position: relative;
+}
+
+.quadrato{
+    width: 100px;
+    height: 100px;
+    background-color: #ffa600;
+    text-align: center;
+    color: red;
+    text-align: center;
+    line-height: 100px;
+    border: 2px solid red;
+    position: absolute;
+}
+
+.quadrato:nth-of-type(1){
+    left: 0;
+    top: 0;
+}
+.quadrato:nth-of-type(2){
+    right: 0;
+    top: 0;
+}
+.quadrato:nth-of-type(3){
+    left: 0;
+    bottom: 0;
+}
+.quadrato:nth-of-type(4){
+    right: 0;
+    bottom: 0;
+}
+
+
+
+/* Esempio per Fixed  */
+html{
+    scroll-behavior: smooth;
+}
+
+#fixed-header{
+    height: 70px;
+    background-color: purple;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#back-to-top{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+}
+
+
+/* Esempio per Sticky  */
+#sticky-header{
+    height: 70px;
+    background-color: purple;
+    position: sticky;
+    width: 100%;
+    top: 0;
+}
+
+/* Esempio per z-index  */
+
+.blocco-absolute{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    background-color: red;
+    z-index: 3;
+}
+
+.blocco-absolute:nth-of-type(2){
+    background-color: blue;
+    top: 50px;
+    left: 50px;
+    z-index: 2;
+}
+
+.blocco-absolute:nth-of-type(3){
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+    z-index: 1;
+}
+
+.blocco-absolute:nth-of-type(4){
+    background-color: green;
+    top: 150px;
+    left: 150px;
+    z-index: 0;
+}

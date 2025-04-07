@@ -1,0 +1,42 @@
+.desktop,
+.mobile,
+.tablet{
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+
+.desktop, .tablet{
+    display: none;
+}
+
+@media screen and (min-width: 481px) {
+    .desktop,
+    .mobile,
+    .tablet{
+        background-color: rgb(255, 0, 0);
+    }
+
+    .mobile{
+        display: none;
+    }
+    .tablet{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .desktop,
+    .mobile,
+    .tablet{
+        background-color: rgb(230, 0, 255);
+    }
+    .tablet{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+}
