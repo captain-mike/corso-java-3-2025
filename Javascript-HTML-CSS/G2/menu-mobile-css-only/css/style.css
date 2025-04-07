@@ -1,0 +1,14 @@
+nav{
+    height: 0;
+    background-color: bisque;
+    overflow: hidden;
+    transition: height 0.3s;
+}
+
+#open{
+    display: none;
+}
+
+input[type="checkbox"]:checked + nav{
+    height: 120px;
+}

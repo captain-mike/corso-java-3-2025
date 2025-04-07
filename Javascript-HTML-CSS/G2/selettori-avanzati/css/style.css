@@ -1,0 +1,92 @@
+/*selettore-gerarchico.html*/
+#genitore .figlio{/*specificità 110*/
+    color: blue;
+}
+
+#genitore > .figlio{
+    color: red;
+}
+
+
+/*selezione-multipla-avanzata.html*/
+
+h1, h2, h3, h4, h5, h6{
+    /*In caso di conflitto ogni elemento viene calcolato come un elemento a sé, quindi non avviene la somma della specificità */
+    font-weight:bold;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+h1{
+    text-decoration: none;
+}
+
+
+
+hr + p{
+    /*Colora solo il primo p dopo una hr*/
+    color: chocolate;
+}
+
+i ~ p{
+    /* Colora tutti i paragrafi dopo un tag i. */
+    color: crimson;
+}
+
+
+/*pseudoclassi-hover-active-visited.html*/
+
+a, a:visited{
+    color: #000;   
+    font-size: 2rem;
+}
+
+a:hover{
+    text-shadow: 3px 3px 3px #000;
+}
+
+a:active{
+    text-shadow: 1px 1px 3px #000;
+}
+
+/*altri-selettori-avanzati.html*/
+table{
+    width: 100%;
+}
+
+td {
+    border: 1px solid #000;
+}
+
+/* La prima Tr di ogni table  */
+table tr:first-child{
+    background-color: red;
+}
+
+/* La prima cella della prima riga di ogni table  */
+table tr:first-child td:first-child{
+    font-weight: bold;
+}
+
+/* Tutte le righe di numero pari.  */
+table tr:nth-of-type(even){
+    background-color: #ccc;
+}
+/* La prima lettera dell'ultima cella della seconda riga di ogni table.  */
+table tr:nth-of-type(2) td:last-child::first-letter{
+    color: red;
+}
+
+/*speudo elementi
+::before
+::after
+*/
+table tr td:first-child::before{
+    content: "#";
+}
+
+table tr td:first-child::after{
+    content: "@";
+}
