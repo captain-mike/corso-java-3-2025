@@ -1,0 +1,35 @@
+.colonna{
+    background-color: bisque;
+    height: 300px;
+    width: calc(100% / 4 - 0.4rem);
+    text-align: center;
+    font-size: 2rem;
+    display: inline-block;
+}
+
+.grid{
+    width: 1170px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width:1170px) {
+    .grid{
+        width: 768px;
+    }
+    .colonna{
+        background-color: rgb(255, 140, 0);
+        height: 200px;
+        width: calc(100% / 2 - 0.4rem);
+    }
+}
+
+@media screen and (max-width:768px) {
+    .grid{
+        width: 100%;
+    }
+    .colonna{
+        background-color: rgb(0, 13, 255);
+        width: calc(100% - 0.4rem);
+    }
+}
