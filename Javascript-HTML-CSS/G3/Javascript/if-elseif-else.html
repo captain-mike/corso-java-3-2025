@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let anni = prompt('Quanti anni hai?');
+
+        if(anni >= 18 && anni <= 120){
+            document.write("sei maggiorenne");
+        }else if(anni >= 121 || anni <= 5){
+            document.write("Mi prendi in giro");
+        }else{
+            //redirect
+            location.href = "https://www.peppapig.com/it-it";
+        }
+
+
+    </script>
+
+</body>
+</html>

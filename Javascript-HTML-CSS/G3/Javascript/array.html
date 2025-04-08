@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let arr = [
+            1,
+            'a',
+            true,
+            [],
+            {}
+        ];
+
+        //non usare mai document.write()
+        document.write(arr);//array viene convertito in stringa
+
+        /*Tutte le volte che voglio mostrare un dato nella pagina io sto convertendolo in stringa. 
+        Array è convertibile in stringa*/
+
+        console.log(arr);
+
+        // Grazie alla proprietà length posso sapere quanti elementi ci sono in un array esattamente come accade con le stringhe 
+        console.log(arr.length);
+
+
+        let numeri = [1,2,3,4,5,6];
+        //lettura
+        console.log( 'primo elemento nell\'array numeri:', numeri[0] );
+        
+        //scrittura
+        numeri[0] = 100;
+        console.log( 'primo elemento nell\'array numeri dopo il riassegnamento:', numeri[0] );
+        
+        //aggiunta errata
+        //dobbiamo evitare di creare buchi nella numerazione degli array
+        // numeri[9] = 100;//crea buchi dall'indice 5 al 9
+        // console.log(numeri);
+        
+        
+        //L'aggiunta in coda ad un array si può fare attraverso il metodo push()
+        numeri.push(4,5,7,8,9);
+        console.log(numeri);
+        
+        //rimozione in coda
+        let eliminato = numeri.pop();
+        console.log(numeri, 'Numero eliminato: ' + eliminato);
+        
+        //rimozione da un punto a scelta
+        let indice = 0;//punto di partenza
+        let quantitàDaEliminare = 1;//quantità di elementi da eliminare
+        numeri.splice(indice, quantitàDaEliminare);
+        console.log('Primo elemento eliminato',numeri);
+        
+        //aggiunta da un punto a scelta
+        numeri.splice(5, 0, 444);
+        console.log('Aggiunta in posizione 5',numeri);
+        
+        //sostituzione da un punto a scelta
+        numeri.splice(1, 1, '#');
+        console.log('Aggiunta in posizione 5',numeri);
+
+    </script>
+
+</body>
+</html>

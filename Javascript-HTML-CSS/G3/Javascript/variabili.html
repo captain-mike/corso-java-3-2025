@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let inizializzata;
+
+        console.log(inizializzata);//undefined
+
+        let numero = 5;
+        let numeroStringa = "5";//stringa
+        let stringa = 'Ciao';//stringa
+        let stringa2 = "Ciao";//stringa
+        let booleano = false;
+        let array = [];
+        let oggetto = {};        
+
+        //stringhe
+        let saluto = "Benvenuto";
+        let nome = "Michele";
+        
+        console.log(saluto + " " + nome);
+
+
+        //sapere il numero di caratteri
+        let numeroCaratteri = saluto.length
+        console.log(numeroCaratteri);//9
+
+
+        //operazioni miste
+        {
+
+            let numero = 5;
+            let stringa = "5";
+            
+            console.log(numero + stringa);//55
+            console.log(numero * stringa);//25            
+            
+        }
+
+
+        {
+            //costanti
+
+            const prova = 5;
+
+            // prova = 6;//->Uncaught TypeError: Assignment to constant variable.
+
+            const persona = {
+                nome : "Mario",
+                cognome : "Rossi"
+            }
+
+            persona.cognome = "Verdi";//->funziona
+            
+            //Dichiaro che i valori interni all'oggetto non devono più essere modificabili
+            Object.freeze(persona);//->non posso più modificare l'oggetto
+            
+            
+            persona.cognome = "Bianchi";//->non funziona
+
+            console.log(persona);
+            
+        }
+        
+
+
+    </script>
+
+</body>
+</html>

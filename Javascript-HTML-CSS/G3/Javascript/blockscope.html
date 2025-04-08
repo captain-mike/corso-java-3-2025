@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        // console.log(variabile);
+        //Se non dichiaro la variabile: variabile is not defined
+        //se utilizzo una variabile prima di averla dichiarata: Cannot access 'variabile' before initialization
+        // let variabile;
+
+
+        let a = 0;
+
+        {
+            console.log(a);            
+        }
+
+
+        {
+            let b = 1;
+        }
+        // console.log(b); variabile is not defined
+
+        {
+            let a = 2;//da questo momento la variabile a nel blocco è questa della riga 32
+            console.log(a);//variabile della riga 32
+        }
+        
+        console.log(a);//variabile della riga 19            
+
+
+        
+    </script>
+
+</body>
+</html>
