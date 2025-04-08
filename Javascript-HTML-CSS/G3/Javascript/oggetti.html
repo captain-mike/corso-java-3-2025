@@ -9,6 +9,75 @@
     
     <script>
 
+{
+
+    let obj = {};
+    //Posso assegnare un valore ad una proprietà e se questa non esiste viene creata 
+    obj.prop = 'Ciao';
+    console.log(obj);
+    
+    console.log(typeof obj);//object
+    console.log(typeof []);//object
+    console.log(Array.isArray([]));//così verifico se è davvero un array
+    
+    
+    //accesso a prop
+    console.log(obj.prop);//dot notation
+    console.log(obj['prop']);//bracket notation
+    //Usare la dot notation solo se la proprietà a cui si vuole accedere ha un formato non accettato dalla sintassi di Javascript
+    
+    
+    //oggetti con prop non conformi
+    let objNonConfrome = {
+        "nome-proprietà" : 'Valore'
+    };
+    console.log(objNonConfrome['nome-proprietà']);
+    
+    
+}
+
+
+{
+
+    let pizza = {
+        gusto : "Margherita",
+        prezzo : 5,
+        saluto : function(){
+            console.log("La pizza " + this.gusto + " costa 5 euro");            
+        }
+    }
+
+    let pizza2 = {
+        gusto : "Diavola",
+        prezzo : 1,
+        saluto : function(){
+            console.log("La pizza margherita costa 5 euro");            
+        }
+    }
+
+}
+
+{
+
+    //Funzione costruttore utilizzata per generare in serie oggetti di tipo pizza. 
+    function Pizza(gusto, prezzo){
+        this.gusto = gusto;
+        this.prezzo = prezzo;
+    }
+
+    let pizza = new Pizza('Margherita',6);
+    let pizza2 = new Pizza('Diavola',1);
+
+    pizza.gusto;//Margherita
+    pizza2.gusto;//Diavola
+
+
+    console.table([pizza, pizza2]);
+
+}
+
+        
+        
         
     </script>
 

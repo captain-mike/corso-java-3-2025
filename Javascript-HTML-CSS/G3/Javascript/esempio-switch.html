@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select id="pizze" onchange="mostraPrezzo(this)">
+        <option value="Margherita">Margherita</option>
+        <option value="Diavola">Diavola</option>
+        <option value="Marinara">Marinara</option>
+        <option value="Ananas">Ananas</option>
+    </select>
+
+    <div id="prezzo"></div>
+    
+
+    <script>
+
+        function mostraPrezzo(select){
+
+            const prezzo = document.getElementById('prezzo');//div in cui scrivo il risultato
+            let res;//variabile in cui salvo il risultato
+
+            switch(select.value){
+                case "Margherita":
+                    res = '5€';
+                    break;
+                case "Diavola":
+                    res = "1€";
+                    break;
+                case "Marinara":
+                    res = "4€";
+                    break;
+                default:
+                    res = "Pizza non disponibile";
+            }
+
+            prezzo.innerText = res;
+
+        }
+
+    </script>
+
+
+</body>
+</html>

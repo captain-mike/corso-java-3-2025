@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const saluto = () => {
+            console.log('ciao');            
+        }
+
+        saluto();
+
+        //freccia one line senza parametri
+        const getSaluto = () => 'ciao';
+
+        console.log( getSaluto() );
+
+        //Freccia One line con due parametri 
+        const somma = (a, b) => a + b;
+
+        console.log(somma(2,2));
+
+        //Freccia one line con un solo parametro. 
+        const moltiplica = n => n * 2;
+        //Se ho un solo parametro posso evitare di inserire le parentesi tonde 
+
+        console.log( moltiplica(4589) );
+        
+
+        //Le funzioni online possono essere scritte senza le parentesi graffe. A quel punto il return è implicito. 
+        //Ma per funzioni più complesse che contengono più istruzioni, è necessario utilizzare le graffe 
+        //In quel caso è necessario inserire la parola chiave reterne se occorre 
+
+        const sommaPiuRighe = (a, b) => {
+            return a + b;
+        }
+        
+        
+
+    </script>
+</body>
+</html>

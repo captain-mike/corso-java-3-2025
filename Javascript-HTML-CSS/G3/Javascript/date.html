@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+{
+
+    let now = new Date();
+    
+    const anno = now.getFullYear();
+    console.log(anno);
+    
+    let giorno = now.getDay()//indice del giorno della settimana attuale
+    console.log(giorno);// da 0 a 6 (domenica primo giorno)
+    
+    let mese = now.getMonth();
+    console.log(mese);
+    
+}
+
+
+{
+
+    let now =  new Date();
+    
+    now.setMonth(now.getMonth() + 1);//1 mese da oggi
+    
+    console.log(now);
+    console.log('timestamp: ', now.getTime());
+    
+    new Date(now.getTime())
+    
+    
+}
+
+{
+    
+    let now =  new Date();
+
+    let data = now.toLocaleDateString('it-IT',{weekday:"long", year:"numeric", month:"long", day:"2-digit"});
+
+    console.log(data);
+    
+}
+
+        
+        
+        
+
+    </script>
+</body>
+</html>

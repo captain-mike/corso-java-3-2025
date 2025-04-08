@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+        // La funzione saluto sfrutta l'osting. Di conseguenza può essere invocata anche prima della sua definizione. 
+        saluto();
+        
+        
+        function saluto(){
+            console.log('ciao');
+        }
+        
+        saluto();
+        
+        
+        
+        // saluto2();Uncaught ReferenceError: Cannot access 'saluto2' before initialization
+        // In questo caso, invece, stiamo trattando una funzione anonima assegnata ad una variabile. Di conseguenza non è soggetta all'hosting. 
+        let saluto2 = function(){
+            console.log('ciao');
+        }
+
+        saluto2();
+
+    </script>
+
+</body>
+</html>

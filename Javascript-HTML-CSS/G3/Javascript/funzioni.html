@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function saluto(){
+            console.log('ciao');            
+        }
+
+        function getSaluto(){
+            return 'ciao';
+        }
+
+        saluto();
+
+        let res = getSaluto();
+
+        console.log(res);
+
+
+        console.log(getSaluto);
+
+
+        //parametri
+
+        function somma(a, b){
+            if(!a || !b) throw new Error('Valori assenti');
+
+            return a + b;
+        }
+
+        console.log(somma(4, 5));
+        
+
+        function somma2(a = 0, b = 0){            
+            return a + b;
+        }
+
+
+        //funzioni auto invocate
+        (function(){
+            console.log('eseguita');            
+        })()
+
+
+        //scope delle closure
+        function closure(){
+
+            let a = 0;
+            function figlia(){
+                console.log(a);//0
+                let b = 1;
+            }
+            figlia();
+
+
+            // console.log(b); Uncaught ReferenceError: b is not defined
+            
+        }
+
+        closure();
+
+
+        
+
+        console.log("%c =============================", "color:red");
+
+        function a(x){
+            return function b(y){
+                return function c(z){
+                    return x + y + z;
+                }
+            }
+        }        
+
+        console.log( a(5)(5)(5) );
+        
+
+    </script>
+
+</body>
+</html>

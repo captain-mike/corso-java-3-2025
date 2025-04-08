@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+            let numeri = [1,2,3,4,5,6,7,8,9];
+
+            numeri.forEach((n,i) => {
+
+                console.log(`Valore dell'elemento n* ${i} : ${n}`);
+                
+            });
+
+
+            let moltiplicati = numeri.map(n => n * 2);
+            console.log(moltiplicati);
+            
+            let filtrati = numeri.filter(n => n > 4);
+            console.log(filtrati);
+            
+            let trovato = numeri.find(n => n > 4);
+            console.log(trovato);
+            
+            
+            let somma = numeri.reduce((acc, n) => {
+                return acc.push(n * 2)
+            }, []);
+            console.log(somma);
+
+
+    </script>
+
+</body>
+</html>
