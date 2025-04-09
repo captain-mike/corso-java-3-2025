@@ -41,7 +41,5 @@ articoli.forEach(el => {
                     </div>
                   </div>
             </div>`;
-        
-
-})
+});
 

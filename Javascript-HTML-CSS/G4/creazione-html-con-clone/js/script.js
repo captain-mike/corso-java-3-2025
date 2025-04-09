@@ -35,14 +35,6 @@ articoli.forEach(el => {
     tempDiv.querySelector('.card-img-top').src = el.immagine;
     tempDiv.querySelector('.card-title').innerText = el.titolo;
     tempDiv.querySelector('.card-text').innerText = el.descrizioneBreve
-
-    tempDiv.querySelector('.card-img-top')
-    .addEventListener('click',function(){
-        alert('click');
-    })
-   
-    console.dir(tempDiv);
-    
    
     target.append(...tempDiv.children);
 
