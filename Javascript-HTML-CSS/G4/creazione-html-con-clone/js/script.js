@@ -1,4 +1,3 @@
-
 const articoli = [
     {
         titolo: "Esplorando la Natura",
@@ -29,19 +28,33 @@ const articoli = [
 
 articoli.forEach(el => {
 
-    const target = document.getElementById('target');
+    const target = document.getElementById('target');//area in cui inserirò il contenuto dinamico
+    const tempDiv = getClone('#card-template');
 
-    target.innerHTML += `<div class="col col-lg-3">
-                <div class="card">
-                    <img src="${el.immagine}" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">${el.titolo}</h5>
-                      <p class="card-text">${el.descrizioneBreve}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>`;
-        
+
+    tempDiv.querySelector('.card-img-top').src = el.immagine;
+    tempDiv.querySelector('.card-title').innerText = el.titolo;
+    tempDiv.querySelector('.card-text').innerText = el.descrizioneBreve
+
+    tempDiv.querySelector('.card-img-top')
+    .addEventListener('click',function(){
+        alert('click');
+    })
+   
+    console.dir(tempDiv);
+    
+   
+    target.append(...tempDiv.children);
 
 })
+
+function getClone(templateSelector){
+    const clone = document.querySelector(templateSelector).content.cloneNode(true);//clone dell'html contenuto nel tag template
+
+    //Creo un elemento di momentaneo solo per effettuare la conversione del clone da document fragment a elemento DOM
+    const tempDiv = document.createElement('div');
+    tempDiv.append(clone)
+
+    return tempDiv
+}
 

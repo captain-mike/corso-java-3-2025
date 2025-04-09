@@ -41,17 +41,26 @@ articoli.forEach(el => {
 
     const target = document.getElementById('target');
 
-    target.innerHTML += `<div class="col col-lg-3">
-                <div class="card">
-                    <img src="${el.immagine}" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">${el.titolo}</h5>
-                      <p class="card-text">${el.descrizioneBreve}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>`;
-        
+    const colonna = document.createElement('div');
+    const card = document.createElement('div');
+    const immagine = document.createElement('img')
+    const titolo = document.createElement('h5')
+    const descrizione = document.createElement('p')
+
+    colonna.classList.add('col','col-lg-3');
+    card.classList.add('card');
+    immagine.classList.add('card-img-top');
+    titolo.classList.add('card-title');
+    descrizione.classList.add('card-text');
+
+    immagine.src = el.immagine;
+    titolo.innerText = el.titolo;
+    descrizione.innerText = el.descrizioneBreve
+
+    
+    card.append(immagine, titolo, descrizione)
+    colonna.append(card);
+    target.append(colonna);
 
 })
 
