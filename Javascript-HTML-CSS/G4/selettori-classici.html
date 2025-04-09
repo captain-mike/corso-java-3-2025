@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test"></div>
+
+    <div class="prova"></div>
+    <div class="prova"></div>
+    <div class="prova"></div>
+
+    <script>
+
+        //1 solo elemento oppure null
+        const test = document.getElementById('test');
+
+        console.dir(test);
+
+        test.innerHTML = "<b>Ciao</b>";
+
+        //una lista di elementi
+        const prova = document.getElementsByClassName('prova');
+        console.log(prova);
+        for(let el of prova){
+            el.innerHTML = 'Selezionato';
+        }
+
+        
+
+    </script>
+
+</body>
+</html>

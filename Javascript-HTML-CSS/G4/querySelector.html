@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="test"></div>
+
+    <div class="prova"></div>
+    <div class="prova"></div>
+    <div class="prova"></div>
+    
+    <script>
+
+        //1 elemento oppure null
+        const test = document.querySelector("#test");
+        test.innerHTML = 'Selezionato';
+        
+        //sempre 1 solo elemento (il primo) oppure null
+        const prova = document.querySelector(".prova");
+        prova.innerHTML = 'Prova selezionato';
+        
+        //sempre una lista, possibilmente vuota
+        const provaArr =  document.querySelectorAll(".prova");
+        
+        provaArr.forEach((el) => {
+            el.innerHTML = 'Prova selezionato querySelectorAll';
+        });
+
+    </script>
+
+</body>
+</html>
