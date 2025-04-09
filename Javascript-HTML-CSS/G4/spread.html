@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        {
+
+            function somma(...numeri) {
+                return numeri.reduce((a, n) => a + n);
+            }
+
+            let numeri = [1, 2, 3, 4, 5, 6];
+
+            console.log(somma(...numeri));
+            console.log(...numeri);
+
+        }
+
+        //Può essere molto utile se dobbiamo effettuare una copia dell'array. 
+        {
+            let numeri = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let numeriCopy = [...numeri];
+        }
+
+        {
+            //concatenare array
+            let numeri1 = [1, 2, 3, 4];
+            let numeri2 = [5, 6, 7, 8];
+
+            let concatenati = [...numeri1, ...numeri2];
+            let concatenati2 = [8, ...numeri1, 67, ...numeri2];
+
+            console.log(concatenati, concatenati2);
+
+
+            //puoi farlo anche con concat
+            //numeri1.concat(numeri2);
+        }
+
+        {
+            // copiare oggetto
+
+            const pizza = {
+                gusto: "Margherita",
+                prezzo: 1
+            }
+
+            const pizzaCopy = { ...pizza };
+
+            pizzaCopy.gusto = "Marinara";
+
+            console.log([
+                pizza,
+                pizzaCopy
+            ]);
+
+        }
+
+        {
+            //unire oggetti
+            let obj1 = { a: 1, b: 2 };
+            let obj2 = { c: 3, d: 4 };
+
+            let fullObj = {
+                ...obj1,
+                ...obj2,
+                e: 5
+            };
+
+            console.log(fullObj);
+        }
+
+
+        {
+            // aggiornare oggetti
+
+            let pizza = {
+                gusto: "Margherita",
+                prezzo: 1
+            }
+
+            pizza = {
+                ...pizza,
+                prezzo: 5
+            }
+            console.log("🚀 ~ newPizza:", pizza)
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
