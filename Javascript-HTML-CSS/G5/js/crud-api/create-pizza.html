@@ -25,7 +25,7 @@
         <form>
 
           <input id="gusto" class="form-control mb-3" type="text" placeholder="Gusto">
-          <input id="prezzo" class="form-control mb-3" type="text" placeholder="Prezzo">
+          <input id="prezzo" class="form-control mb-3" type="number" placeholder="Prezzo">
           <div class="mb-3">
             <label for="disp">Disponibile?</label>
             <input id="disp" type="checkbox">
@@ -56,7 +56,7 @@
         
         await createPizza({
           gusto:gusto.value,
-          prezzo: prezzo.value,
+          prezzo: parseInt(prezzo.value),
           disp: disp.checked
         })
 
