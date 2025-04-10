@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+
+
+    <script>
+
+        function scriviTesto(selettore, testo, callback){
+            const el = document.querySelector(selettore);
+            el.innerHTML = callback(testo);
+        }
+
+        scriviTesto('#test1','ciao', t => t + '<br>');
+        
+        scriviTesto('#test2','ciao', grassetto);
+
+        scriviTesto('#test3','ciao', corsivo);
+
+
+        function grassetto(testo){
+            return `<b>${testo}</b>`;
+        }
+
+        function corsivo(testo){
+            return `<i>${testo}</i>`;
+        }
+
+
+
+    </script>
+
+</body>
+</html>
