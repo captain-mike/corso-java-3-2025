@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./css/loader.css">
+</head>
+
+<body>
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="./index.html" class="nav-link active" aria-current="page">Lista pizze</a></li>
+      <li class="nav-item"><a href="./create-pizza.html" class="nav-link">Crea pizza</a></li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Crea una nuova pizza</h1>
+        <form>
+
+          <input id="gusto" class="form-control mb-3" type="text" placeholder="Gusto">
+          <input id="prezzo" class="form-control mb-3" type="number" placeholder="Prezzo">
+          <div class="mb-3">
+            <label for="disp">Disponibile?</label>
+            <input id="disp" type="checkbox">
+          </div>
+
+          <button id="send" class="btn btn-success">Salva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import CreatePizza from './js/Create-pizza.js';
+    new CreatePizza('send');
+
+  </script>
+
+</body>
+
+</html>

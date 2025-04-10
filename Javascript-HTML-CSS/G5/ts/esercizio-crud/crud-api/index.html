@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/loader.css">
+</head>
+
+<body>
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="./index.html" class="nav-link active" aria-current="page">Lista pizze</a></li>
+            <li class="nav-item"><a href="./create-pizza.html" class="nav-link">Crea pizza</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+
+        <!-- crezione di una tabella di pizze -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Gusto</th>
+                    <th>Prezzo</th>
+                    <th>Disponibile?</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody id="target"></tbody>
+        </table>
+        
+    </div>
+
+    <script type="module">
+        import Loader from "./js/Loader.js";
+
+        async function getPizzas() {
+            const response = await fetch("http://localhost:3000/pizze")
+
+            if (!response.ok) throw new Error(response.status);
+
+            return await response.json();
+        }
+
+        async function buildTable(){
+            Loader.start();
+            try {
+                const pizze = await getPizzas()
+                
+                pizze.forEach(p => {
+                    
+                    const {id, gusto, prezzo, disp} = p;
+
+
+                    //creo tutti gli elementi
+                    const tr = document.createElement('tr');
+
+                    const tdId = document.createElement('td');
+                    const tdGusto = document.createElement('td');
+                    const tdPrezzo = document.createElement('td');
+                    const tdDisp = document.createElement('td');
+                    const tdAzioni = document.createElement('td');
+
+                    const deleteBtn = document.createElement('button')
+                    const editLink = document.createElement('a')
+
+                    //assegno attributi
+                    deleteBtn.classList.add('btn','btn-danger');
+                    editLink.classList.add('btn','btn-warning');
+                    editLink.href = `/update-pizza.html?id=${id}`;
+
+                    //assegno eventi
+                    deleteBtn.addEventListener('click',async ()=> {
+                        if(!confirm('Sei sicuro?')) return
+                        
+                        Loader.start()
+                        try{
+                            await deletePizza(id)
+                            tr.remove()
+                        }catch(error){
+                            console.error(error);
+                        }finally{
+                            Loader.stop();
+                        }
+                    })
+
+                    //inserisco testi
+                    tdId.innerText = id;
+                    tdGusto.innerText = gusto;
+                    tdPrezzo.innerText = prezzo;
+                    tdDisp.innerText = disp ? 'Si' : 'No';
+                    deleteBtn.innerText = 'Elimina';
+                    editLink.innerText = 'Modifica';
+
+                    //uso append per innestare gli elementi
+                    tdAzioni.append(deleteBtn, editLink);
+                    tr.append(tdId, tdGusto, tdPrezzo, tdDisp, tdAzioni);
+
+                    document.getElementById('target').append(tr)
+
+                });
+
+            } catch (error) {
+                console.error();
+            }finally{
+                Loader.stop();
+            }
+        }
+
+        async function deletePizza(id) {
+            const response = await fetch(`http://localhost:3000/pizze/${id}`,{
+                method:'DELETE',
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            })
+
+            if (!response.ok) throw new Error(response.status);
+
+            return await response.json();
+        }
+
+        async function init(){
+
+            buildTable();
+
+            
+        }
+
+        init();
+        
+    </script>
+
+</body>
+
+</html>
