@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChiSiamoComponent } from './pages/chi-siamo/chi-siamo.component';
 import { ContattiComponent } from './pages/contatti/contatti.component';
 import { Page404Component } from './pages/page404/page404.component';
+import { MenuComponent } from './main-components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { Page404Component } from './pages/page404/page404.component';
     HomeComponent,
     ChiSiamoComponent,
     ContattiComponent,
-    Page404Component
+    Page404Component,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
