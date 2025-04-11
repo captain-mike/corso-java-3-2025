@@ -1,1 +1,16 @@
-<p>update-form works!</p>
+<h3>Modifica pizza</h3>
+
+
+<div class="my-3">
+  <input type="text" [(ngModel)]="pizzaDaModificare.gusto" placeholder="Gusto" class="form-control">
+</div>
+<div class="mb-3">
+  <input type="number" [(ngModel)]="pizzaDaModificare.prezzo" placeholder="Prezzo" class="form-control">
+</div>
+
+<div class="mb-3">
+  <label for="disp">Disponibile </label>
+  <input [(ngModel)]="pizzaDaModificare.disp" id="disp" type="checkbox">
+</div>
+
+<button (click)="update()" class="btn btn-primary">Modifica</button>

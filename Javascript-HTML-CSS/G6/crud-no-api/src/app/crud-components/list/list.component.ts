@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pizza } from '../../interfaces/pizza';
 
 @Component({
@@ -8,6 +8,17 @@ import { Pizza } from '../../interfaces/pizza';
 })
 export class ListComponent {
 
- @Input() inputPizze: Pizza[] = []
+  @Output() onEditRequest = new EventEmitter<Pizza>();
+  @Output() onDelete = new EventEmitter<number>();
+
+  @Input() inputPizze: Pizza[] = []
+
+  delete(id:number) {
+    this.onDelete.emit(id)
+  }
+
+  editRequest(pizza:Pizza) {
+    this.onEditRequest.emit(pizza)
+  }
 
 }

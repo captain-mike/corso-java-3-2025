@@ -13,6 +13,8 @@
     class="app-list-item"
     *ngFor="let p of inputPizze"
     [singolaPizza]="p"
+    (onDelete)="delete($event)"
+    (onEditRequest)="editRequest($event)"
     ></tr>
   </tbody>
 </table>

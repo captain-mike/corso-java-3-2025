@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Pizza } from '../../interfaces/pizza';
 
 @Component({
   selector: 'app-update-form',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './update-form.component.scss'
 })
 export class UpdateFormComponent {
+
+  @Input() pizzaDaModificare!:Pizza;
+  @Output() onEditPizza = new EventEmitter<Pizza>()
+
+  update(){
+
+    this.onEditPizza.emit(this.pizzaDaModificare);
+
+  }
 
 }

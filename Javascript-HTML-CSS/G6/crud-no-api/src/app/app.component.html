@@ -4,11 +4,25 @@
     <div class="col-12 text-center">
       <h1>Gestione pizze</h1>
     </div>
-    <div class="col-8">
-      <app-list [inputPizze]="pizze"></app-list>
+    <div class="col-12">
+      <app-list
+      (onDelete)="deletePizza($event)"
+      (onEditRequest)="startEditingPizza($event)"
+      [inputPizze]="pizze"></app-list>
     </div>
-    <div class="col-4">
 
+    <button
+    (click)="isCreatingNewPizza = !isCreatingNewPizza"
+    class="btn btn-success">
+      Aggiungi una pizza
+    </button>
+
+    <div *ngIf="isCreatingNewPizza" class="col-12">
+        <app-create-form (onCreate)="addNewPizza($event)"></app-create-form>
+    </div>
+
+    <div *ngIf="pizzaSelezionataPerModifica" class="col-12">
+      <app-update-form [pizzaDaModificare]="pizzaSelezionataPerModifica"></app-update-form>
     </div>
   </div>
 </div>
