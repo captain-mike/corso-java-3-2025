@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>Gestione pizze</h1>
+    </div>
+    <div class="col-12">
+      <app-list></app-list>
+    </div>
+
+    <button
+    (click)="isCreatingNewPizza = !isCreatingNewPizza"
+    class="btn btn-success">
+      Aggiungi una pizza
+    </button>
+
+    <div *ngIf="isCreatingNewPizza" class="col-12">
+        <app-create-form></app-create-form>
+    </div>
+
+    <div *ngIf="" class="col-12">
+      <app-update-form></app-update-form>
+    </div>
+  </div>
+</div>
