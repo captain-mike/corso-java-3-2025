@@ -1,4 +1,32 @@
 <app-layout1>
 
+  <h1>Crea una pizza</h1>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{successMessage}}
+  </div>
+
+<ng-container *ngIf="isLoading">
+  <div>Caricamento</div>
+</ng-container>
+
+  <form *ngIf="!isLoading">
+
+    <div class="my-3">
+      <input type="text" name="gusto" [(ngModel)]="pizza.gusto"  placeholder="Gusto" class="form-control">
+    </div>
+    <div class="mb-3">
+      <input type="number" name="prezzo" [(ngModel)]="pizza.prezzo" placeholder="Prezzo" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="disp">Disponibile </label>
+      <input name="disp" [(ngModel)]="pizza.disp" id="disp" type="checkbox">
+    </div>
+
+    <button (click)="save()" class="btn btn-primary">Modifica</button>
+
+
+  </form>
 
 </app-layout1>

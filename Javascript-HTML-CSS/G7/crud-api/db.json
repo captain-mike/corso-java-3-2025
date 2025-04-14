@@ -1,3 +1,22 @@
 {
-  "pizze": []
+  "pizze": [
+    {
+      "gusto": "Margherita",
+      "prezzo": 5,
+      "disp": true,
+      "id": 1
+    },
+    {
+      "gusto": "Ipsum quidem labore ",
+      "prezzo": 28,
+      "disp": false,
+      "id": 2
+    },
+    {
+      "gusto": "Do aut ex consectetu",
+      "prezzo": 62,
+      "disp": true,
+      "id": 3
+    }
+  ]
 }

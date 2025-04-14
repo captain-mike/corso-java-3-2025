@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, Subject, tap } from 'rxjs';
 import { Pizza } from './interfaces/pizza';
 import { environment } from '../environments/environment.development';
 
@@ -9,9 +9,29 @@ import { environment } from '../environments/environment.development';
 })
 export class PizzaService {
 
+  carrello:Pizza[] = [];
+
+  $cart = new Subject<Pizza>();
+
+  $cartNames  = this.$cart
+  .pipe(
+    tap(p => this.carrello.push(p)),
+    map(p => p.gusto)
+  )
+
+
   constructor(
     private http:HttpClient
   ) { }
+
+
+  get cartTotal():number{
+    return this.carrello.reduce((acc, p) => acc + p.prezzo, 0)
+  }
+
+  addToCart(pizza:Pizza):void{
+    this.$cart.next(pizza);
+  }
 
   getAll():Observable<Pizza[]>{
     return this.http.get<Pizza[]>(environment.apiUrl)
@@ -29,8 +49,8 @@ export class PizzaService {
     return this.http.put<Pizza>(`${environment.apiUrl}/${pizza.id}`, pizza);
   }
 
-  delete(id:number){
-    return this.http.delete(`${environment.apiUrl}/${id}`)
+  delete(id:number):Observable<void>{
+    return this.http.delete<void>(`${environment.apiUrl}/${id}`)
   }
 
 }

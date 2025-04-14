@@ -2,7 +2,38 @@
 
   <h1>Crea pizza</h1>
 
+  <div *ngIf="pizze.length === 0 && !isLoading" class="alert alert-info">
+    Nessuna pizza disponibile
+  </div>
 
+  <div *ngIf="pizze.length === 0 && isLoading" class="alert alert-info">
+    ...caricamento
+  </div>
+
+  <table *ngIf="pizze.length > 0" class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Gusto</th>
+        <th>Prezzo</th>
+        <th>Disponibile?</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of pizze; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{p.gusto}}</td>
+        <td>{{p.prezzo}}</td>
+        <td>{{p.disp ? 'Si' : 'No'}}</td>
+        <td>
+            <button (click)="delete(p.id)" class="btn btn-danger">Elimina</button>
+            <button (click)="addToCart(p)" class="btn btn-success">Aggiungi al carrello</button>
+            <a [routerLink]="['/modifica-pizza',p.id]" class="btn btn-warning">Modifica</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 
 </app-layout1>
