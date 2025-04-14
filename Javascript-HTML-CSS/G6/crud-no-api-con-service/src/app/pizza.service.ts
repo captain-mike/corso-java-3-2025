@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Pizza } from './interfaces/pizza';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
+
+  $pizzaSelezionata = new BehaviorSubject<Pizza|null>(null)
+  $isEditingAPizza = this.$pizzaSelezionata
+  .pipe(map(pizza => !!pizza))
 
   pizze:Pizza[] = [
       { id: 1, gusto: 'Margherita', prezzo: 6.5, disp: true },
@@ -28,12 +33,14 @@ export class PizzaService {
   }
 
   delete(id:number):void{
-    this.pizze = this.pizze.filter(p => p.id != id);
+    // this.pizze = this.pizze.filter(p => p.id != id);
+    const index = this.pizze.findIndex(p => p.id === id);
+    this.pizze.splice(index,1);
   }
 
   update(pizza:Pizza):void{
     const index = this.pizze.findIndex(p => p.id === pizza.id);
-    this.pizze[index]  = pizza;
+    this.pizze[index] = pizza;
   }
 
 }

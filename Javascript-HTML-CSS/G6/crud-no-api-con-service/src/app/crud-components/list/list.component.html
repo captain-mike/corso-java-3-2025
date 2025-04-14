@@ -8,10 +8,11 @@
       <th>Azioni</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody #t>
     <tr
     class="app-list-item"
-    *ngFor="let p of inputPizze"
+    *ngFor="let p of pizze"
+    [singolaPizza]="p"
     ></tr>
   </tbody>
 </table>

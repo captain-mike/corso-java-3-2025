@@ -18,8 +18,8 @@
         <app-create-form></app-create-form>
     </div>
 
-    <div *ngIf="" class="col-12">
-      <app-update-form></app-update-form>
+    <div *ngIf="pizzaSelezionata" class="col-12">
+      <app-update-form [pizzaDaModificare]="pizzaSelezionata"></app-update-form>
     </div>
   </div>
 </div>

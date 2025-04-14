@@ -1,3 +1,4 @@
+import { PizzaService } from './../../pizza.service';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Pizza } from '../../interfaces/pizza';
 
@@ -9,17 +10,18 @@ import { Pizza } from '../../interfaces/pizza';
 export class CreateFormComponent {
 
 
-  newPizza:Pizza = {
-    id: 0,
+  constructor(
+    private pizzaSvc:PizzaService
+  ){}
+
+  newPizza:Partial<Pizza> = {
     gusto: '',
     prezzo: 0,
     disp: false
   }
 
   create(){
-
-
-
+    this.pizzaSvc.add(this.newPizza);
   }
 
 }
